@@ -25,10 +25,10 @@ const ItemList = ({ category }) => {
       setLoading(true);
       try {
         const query = category === "food" ? "food" : `${category}`;
-
+        var response;
         switch (query) {
           case "food":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/FoodService/getFoodKr?serviceKey=Tuvr3nQOUVQ3mEGjNAit0y1imE7GJ04zyaIaIij8UFgrkmbclNIS3s5umouB7Ik3yB1V0HoXtpjmvufzsEtx9Q%3D%3D&pageNo=1&numOfRows=10&resultType=json"
             );
             console.log(response.data.getFoodKr.item);
@@ -36,7 +36,7 @@ const ItemList = ({ category }) => {
             break;
 
           case "walking":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/WalkingService/getWalkingKr?serviceKey=Tuvr3nQOUVQ3mEGjNAit0y1imE7GJ04zyaIaIij8UFgrkmbclNIS3s5umouB7Ik3yB1V0HoXtpjmvufzsEtx9Q%3D%3D&pageNo=1&numOfRows=10&resultType=json"
             );
             console.log(response.data.getWalkingKr.item);
@@ -44,7 +44,7 @@ const ItemList = ({ category }) => {
             break;
 
           case "book":
-            var response = await axios.get(
+            response = await axios.get(
               "https://apis.data.go.kr/6260000/BookLoanBestService/getBookLoanBest?serviceKey=Tuvr3nQOUVQ3mEGjNAit0y1imE7GJ04zyaIaIij8UFgrkmbclNIS3s5umouB7Ik3yB1V0HoXtpjmvufzsEtx9Q%3D%3D&numOfRows=10&pageNo=5&resultType=json"
             );
             console.log(response.data.getBookLoanBest.body.items.item);
