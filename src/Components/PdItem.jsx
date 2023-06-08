@@ -3,13 +3,20 @@ import styled from "styled-components";
 
 const PdItemBlock = styled.div`
   display: flex;
-  flex: 0 0 80%;
-  flex-wrap: wrap;
+
+  .item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .item1 {
+    display: flex;
+    flex-direction: column;
+  }
 
   .thumbnail {
     margin-right: 1rem;
     img {
-      display: block;
       width: 160px;
       height: 100px;
       object-fit: cover;
@@ -27,6 +34,7 @@ const PdItemBlock = styled.div`
   }
 
   .contents {
+    overflow-y: auto;
     h2 {
       margin: 0;
       a {
@@ -51,35 +59,56 @@ const PdItem = ({ article }) => {
   return (
     <PdItemBlock>
       {CATE2_NM && MAIN_IMG_NORMAL && (
-        <div className="thumbnail2">
-          <a href={MAIN_IMG_NORMAL} target="_blank" rel="noopener noreferrer">
-            <img src={MAIN_IMG_NORMAL} alt="thumbnail" />
-          </a>
+        <div className="item1">
+          <div className="thumbnail2">
+            <a href={MAIN_IMG_NORMAL} target="_blank" rel="noopener noreferrer">
+              <img src={MAIN_IMG_NORMAL} alt="thumbnail" />
+            </a>
+          </div>
+          <div className="contents">
+            <h2>
+              {UC_SEQ}.{MAIN_TITLE}
+            </h2>
+            <p>{ITEMCNTNTS}</p>
+          </div>
         </div>
       )}
       {!CATE2_NM && MAIN_IMG_NORMAL && (
-        <div className="thumbnail">
-          <a href={MAIN_IMG_NORMAL} target="_blank" rel="noopener noreferrer">
-            <img src={MAIN_IMG_NORMAL} alt="thumbnail" />
-          </a>
+        <div className="item">
+          <div className="thumbnail">
+            <a href={MAIN_IMG_NORMAL} target="_blank" rel="noopener noreferrer">
+              <img src={MAIN_IMG_NORMAL} alt="thumbnail" />
+            </a>
+          </div>
+          <div className="contents">
+            <h2>
+              {UC_SEQ}.{MAIN_TITLE}
+            </h2>
+            <p>{ITEMCNTNTS}</p>
+          </div>
         </div>
       )}
       {!CATE2_NM && image && (
-        <div className="thumbnail">
-          <a href={image} target="_blank" rel="noopener noreferrer">
-            <img src={image} alt="thumbnail" />
-          </a>
+        <div className="item">
+          <div className="thumbnail">
+            <a href={image} target="_blank" rel="noopener noreferrer">
+              <img src={image} alt="thumbnail" />
+            </a>
+          </div>
+          <div className="contents">
+            <h2>
+              {rank}.{title}
+            </h2>
+            <p>
+              저자: {author}
+              <br />
+              출판사: {publisher}
+              <br />
+              출판년도: {publish_year}
+            </p>
+          </div>
         </div>
       )}
-      <div className="contents">
-        <h2>
-          {UC_SEQ || rank}.{MAIN_TITLE || title}
-        </h2>
-        <p>{ITEMCNTNTS}</p>
-        <p>{author}</p>
-        <p>{publisher}</p>
-        <p>{publish_year}</p>
-      </div>
     </PdItemBlock>
   );
 };
