@@ -72,8 +72,8 @@ const ItemList = ({ category }) => {
   }
   return (
     <ItemListBlock>
-      {articles.map((article) => (
-        <PdItem key={article.MAIN_TITLE} article={article} />
+      {articles.map((article, index) => (
+        <PdItem key={index} article={article} />
       ))}
     </ItemListBlock>
   );
