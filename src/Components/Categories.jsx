@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const categories = [
   { name: "food", text: "부산맛집정보 서비스" },
   { name: "walking", text: "부산도보여행 정보 서비스" },
-  { name: "book", text: "주간 인기도서 대출 서비스" },
+  { name: "book", text: "주간 인기도서 대출 순위" },
 ];
 
 const CategoriesBlock = styled.div`
